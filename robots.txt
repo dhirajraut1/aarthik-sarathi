@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dhirajraut27.com.np/aarthik-sarathi/sitemap.xml

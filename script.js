@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // ... (DOM element references are the same) ...
   const taxForm = document.getElementById("tax-form");
   const resultsContainer = document.getElementById("results-container");
   const resultsSummary = document.getElementById("results-summary");
@@ -10,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let taxChart = null; // Variable to hold the chart instance
 
-  // UI Logic for toggling fund fields (same as before)
+  // UI Logic for toggling fund fields
   document.querySelectorAll('input[name="fund-type"]').forEach((radio) => {
     radio.addEventListener("change", (event) => {
       document
@@ -49,9 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
     displayResults(initialResults, data, advice);
   });
 
-  // Core Tax Calculation Function (same as before)
+  // Core Tax Calculation Function
   function calculateNepaliTax(data) {
-    // ... (This function remains unchanged) ...
     const MAX_RETIREMENT_DEDUCTION = 500000;
     const MAX_LIFE_INSURANCE_DEDUCTION = 40000;
     const MAX_HEALTH_INSURANCE_DEDUCTION = 20000;
@@ -146,9 +144,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  // Savings Advice Generation (same as before)
+  // Savings Advice Generation
   function generateSavingsAdvice(data, initialResults) {
-    // ... (This function remains unchanged) ...
     const adviceList = [];
     const formatCurrency = (num) =>
       `NPR ${num.toLocaleString("en-NP", { minimumFractionDigits: 0 })}`;
@@ -213,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /**
-   * NEW: Renders the bar chart.
+   *  Renders the bar chart.
    */
   function renderSavingsChart(data, initialResults) {
     // Destroy the previous chart instance if it exists
@@ -328,7 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /**
-   * Main Display Function - Now calls the chart renderer
+   * Main Display Function -  Calls the chart renderer
    */
   function displayResults(results, data, advice) {
     const formatCurrency = (num) =>
@@ -339,7 +336,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Render Summary
     resultsSummary.innerHTML = `<h2>Calculation Summary</h2>...`; // (Content from before)
-    resultsSummary.innerHTML = `<div ... > ... </div>`; // (Same content as previous step)
+    resultsSummary.innerHTML = `<div ... > ... </div>`;
     resultsSummary.innerHTML = `<h2>Calculation Summary</h2><div class="result-row"><span>Gross Annual Income:</span><span>${formatCurrency(
       results.grossAnnualIncome
     )}</span></div><div class="result-row"><span>Total Deductions:</span><span>${formatCurrency(

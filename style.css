@@ -44,7 +44,7 @@ header p {
   margin-top: 5px;
 }
 
-/* --- Form Styles (same as before) --- */
+/* --- Form Styles --- */
 #tax-form .input-group {
   margin-bottom: 20px;
 }
@@ -148,10 +148,10 @@ input:checked + .slider:before {
 }
 .segmented-control input[type="radio"]:checked + label {
   background-color: var(--primary-color);
-  color: white;
+  color: white !important;
 }
 
-/* --- Results & Breakdown Styles (same as before) --- */
+/* --- Results & Breakdown Styles --- */
 .hidden {
   display: none;
 }
@@ -230,7 +230,7 @@ input:checked + .slider:before {
   text-align: right;
 }
 
-/* --- Take-Home Summary Styles (same as before) --- */
+/* --- Take-Home Summary Styles --- */
 #take-home-summary {
   background-color: #ebfbff;
   border-radius: 8px;
@@ -275,7 +275,7 @@ input:checked + .slider:before {
   margin-bottom: 20px;
 }
 
-/* --- Savings Advisor Styles (same as before) --- */
+/* --- Savings Advisor Styles --- */
 #savings-advisor {
   padding-top: 15px;
 }
