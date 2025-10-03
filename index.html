@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aarthik Sarathi - Tax Calculator & Advisor</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="calculator-container">
+      <header>
+        <h1>Aarthik Sarathi</h1>
+        <p>Tax Calculator & Advisor for Nepal (FY 2082/83)</p>
+      </header>
+
+      <form id="tax-form">
+        <!-- All form inputs remain the same -->
+        <!-- Income Details -->
+        <div class="input-group">
+          <label for="monthly-income">Monthly Income (NPR)</label>
+          <input
+            type="number"
+            id="monthly-income"
+            placeholder="e.g., 80000"
+            required
+          />
+        </div>
+        <div class="input-group">
+          <label for="bonus">Annual Bonus (NPR)</label>
+          <input type="number" id="bonus" placeholder="e.g., 80000" />
+        </div>
+        <!-- Marital Status -->
+        <div class="input-group switch-group">
+          <label for="marital-status">Are you married?</label>
+          <label class="switch"
+            ><input type="checkbox" id="marital-status" /><span
+              class="slider"
+            ></span
+          ></label>
+        </div>
+        <!-- Retirement Fund Selector -->
+        <div class="input-group">
+          <label>Primary Retirement Fund</label>
+          <div class="segmented-control">
+            <input
+              type="radio"
+              name="fund-type"
+              id="epf-option"
+              value="epf"
+              checked
+            /><label for="epf-option">EPF</label>
+            <input
+              type="radio"
+              name="fund-type"
+              id="ssf-option"
+              value="ssf"
+            /><label for="ssf-option">SSF</label>
+          </div>
+        </div>
+        <div id="epf-field" class="input-group">
+          <label for="epf">Yearly EPF Contribution (NPR)</label
+          ><input
+            type="number"
+            id="epf"
+            placeholder="Employee Provident Fund"
+          />
+        </div>
+        <div id="ssf-field" class="input-group hidden">
+          <label for="ssf">Yearly SSF Contribution (NPR)</label
+          ><input type="number" id="ssf" placeholder="Social Security Fund" />
+        </div>
+        <div class="input-group">
+          <label for="cit">Yearly CIT Contribution (NPR)</label
+          ><input
+            type="number"
+            id="cit"
+            placeholder="Citizen Investment Trust"
+          />
+        </div>
+        <!-- Other Deductions -->
+        <div class="input-group">
+          <label for="life-insurance">Yearly Life Insurance Premium (NPR)</label
+          ><input
+            type="number"
+            id="life-insurance"
+            placeholder="Max NPR 40,000"
+          />
+        </div>
+        <div class="input-group">
+          <label for="health-insurance"
+            >Yearly Health Insurance Premium (NPR)</label
+          ><input
+            type="number"
+            id="health-insurance"
+            placeholder="Max NPR 20,000"
+          />
+        </div>
+        <div class="input-group">
+          <label for="other-deductions">Other Allowances (e.g., remote)</label
+          ><input
+            type="number"
+            id="other-deductions"
+            placeholder="e.g., 50000"
+          />
+        </div>
+
+        <button type="submit">Calculate Tax & Get Advice</button>
+      </form>
+
+      <div id="results-container" class="hidden">
+        <div id="results-summary"></div>
+        <div id="results-breakdown"></div>
+        <div id="take-home-summary"></div>
+
+        <!-- New Chart Section -->
+        <div id="chart-container">
+          <h3 class="chart-title">Contribution & Savings Analysis</h3>
+          <canvas id="savingsChart"></canvas>
+        </div>
+
+        <div id="savings-advisor"></div>
+      </div>
+
+      <footer>
+        <p>
+          *Disclaimer: Based on FY 2082/83 tax laws. For estimation purposes
+          only.
+        </p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,315 @@
+/* --- Global Styles & Variables --- */
+:root {
+  --primary-color: #1e4b6a; /* Deep Blue */
+  --secondary-color: #2a9d8f; /* Teal Green */
+  --bg-color: #f0f4f8; /* Light Grayish Blue */
+  --card-bg-color: #ffffff;
+  --text-color: #333;
+  --border-color: #ddd;
+  --font-family: "Poppins", sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  margin: 0;
+}
+
+/* --- Main Calculator Container --- */
+.calculator-container {
+  background-color: var(--card-bg-color);
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 550px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+header h1 {
+  color: var(--primary-color);
+  margin: 0;
+}
+header p {
+  color: #666;
+  margin-top: 5px;
+}
+
+/* --- Form Styles (same as before) --- */
+#tax-form .input-group {
+  margin-bottom: 20px;
+}
+#tax-form label {
+  display: block;
+  font-weight: 500;
+  /* margin-bottom: 8px; */
+  color: #555;
+}
+#tax-form input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: var(--font-family);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+#tax-form input[type="number"]:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.2);
+}
+#tax-form button {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+#tax-form button:hover {
+  background-color: #238a7e;
+}
+.switch-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: var(--secondary-color);
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+.segmented-control {
+  display: flex;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.segmented-control input[type="radio"] {
+  display: none;
+}
+.segmented-control label {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #f8f9fa;
+  transition: background-color 0.3s, color 0.3s;
+  font-weight: 500;
+}
+.segmented-control input[type="radio"]:checked + label {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* --- Results & Breakdown Styles (same as before) --- */
+.hidden {
+  display: none;
+}
+#results-container {
+  margin-top: 30px;
+  padding-top: 20px;
+}
+#results-summary,
+#results-breakdown {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  margin-bottom: 25px;
+}
+#results-container h2 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+.result-row:last-child {
+  border-bottom: none;
+}
+.result-row span:first-child {
+  color: #555;
+}
+.result-row span:last-child {
+  font-weight: 500;
+}
+.total-tax-row {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+}
+.total-tax-row .label {
+  font-size: 18px;
+  font-weight: 600;
+  display: block;
+}
+.total-tax-row .value {
+  font-size: 24px;
+  font-weight: 700;
+  display: block;
+  margin-top: 5px;
+}
+.breakdown-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 15px;
+}
+.breakdown-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 14px;
+}
+.breakdown-row .slab-info {
+  color: #666;
+}
+.breakdown-row .slab-tax {
+  font-weight: 600;
+  text-align: right;
+}
+
+/* --- Take-Home Summary Styles (same as before) --- */
+#take-home-summary {
+  background-color: #ebfbff;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.take-home-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0 0 15px 0;
+}
+.take-home-values {
+  display: flex;
+  justify-content: space-around;
+}
+.take-home-values .value-box p {
+  margin: 0;
+  color: #555;
+  font-size: 14px;
+}
+.take-home-values .value-box .amount {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+/* --- NEW: Chart Styles --- */
+#chart-container {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+.chart-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* --- Savings Advisor Styles (same as before) --- */
+#savings-advisor {
+  padding-top: 15px;
+}
+.advisor-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+.advice-card {
+  background-color: #f8f9fa;
+  border-left: 5px solid var(--secondary-color);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 0 8px 8px 0;
+}
+.advice-card h4 {
+  margin: 0 0 8px 0;
+  color: var(--primary-color);
+}
+.advice-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.advice-card .savings-amount {
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #888;
+}
