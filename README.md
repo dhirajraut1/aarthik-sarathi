@@ -24,8 +24,9 @@ This tool is packed with features to provide a comprehensive financial overview:
 ---
 
 ## 📸 Screenshot
-
-
+<img width="2432" height="1576" alt="image" src="https://github.com/user-attachments/assets/4d29572b-e885-4f9e-8816-e2f51dbce6db" />
+<img width="2088" height="1572" alt="image" src="https://github.com/user-attachments/assets/29a05c40-0425-4954-a7f5-54433a14905b" />
+<img width="1972" height="1566" alt="image" src="https://github.com/user-attachments/assets/bb83b074-d10e-40f2-989a-2b7ff4ff0434" />
 
 ---
 
